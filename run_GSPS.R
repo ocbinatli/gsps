@@ -48,5 +48,5 @@ if (file.exists(sprintf("%s/state_cohort_%s_pathway_%s_cluster_%s.RData", result
   
   state <- lmkkmeans_efficient_train(K_train, parameters)
   
-  save("state", file = sprintf("%s/state_cohort_%s_pathway_%s_cluster_%s.RData", result_path, cohort, pathway, cluster_count))
+  save("state", file = sprintf("%s/state_cohort_%s_pathway_%s_GSPS_%s.RData", result_path, cohort, pathway, cluster_count))
 }
