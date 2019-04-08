@@ -3,8 +3,8 @@ library(survival)
 library(survminer)
 
 data_path <- "./data"
-result_path <- "../results"
-survgraph_path <- "../survgraph"
+result_path <- "./results"
+survgraph_path <- "./survgraph"
 
 pathways <- c("hallmark", "pid", "kegg")
 
@@ -24,7 +24,7 @@ for(cohort in cohorts) {
   load(sprintf("%s/TCGA-%s.RData", data_path, cohort))
   for(pathway in pathways) {
     for(method in methods) {
-      for(cluster_count in 2:10) {
+      for(cluster_count in 3:10) {
         if (file.exists(sprintf("%s/surv_figure_cohort_%s_pathway_%s_method_%s_%s.Rdata", survgraph_path, cohort, pathway, method, cluster_count)) == FALSE) {
           if (file.exists(sprintf("%s/state_cohort_%s_pathway_%s_%s_%s.RData", result_path, cohort, pathway, method, cluster_count)) == TRUE) {
             print(sprintf("running %s cohort with %d clusters with ...", cohort, cluster_count))
