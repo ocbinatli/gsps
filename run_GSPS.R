@@ -48,9 +48,5 @@ if (file.exists(sprintf("%s/state_cohort_%s_pathway_%s_cluster_%s.RData", result
   
   state <- lmkkmeans_efficient_train(K_train, parameters)
   
-  #all_genes <- unique(unlist(sapply(1:length(pathways), FUN = function(m) pathways[[m]]$symbols)))
-  #result <- silhouette(state$clustering, as.matrix(dist(X_train[,colnames(X_train) %in% all_genes], "euclidean"))^2)
-  #state$silhouette_score <- as.numeric(colMeans(result)[3])
-  
   save("state", file = sprintf("%s/state_cohort_%s_pathway_%s_cluster_%s.RData", result_path, cohort, pathway, cluster_count))
 }
